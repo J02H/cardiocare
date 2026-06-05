@@ -21,7 +21,7 @@ UCI Heart Disease 데이터셋의 일상적 임상 측정값으로부터 심장�
 | 모니터링·드리프트 | KS 검정 드리프트 탐지, 정상 vs 드리프트 균형 정확도 비교, 시계열 그래프 | `src/monitor.py` |
 | 테스트 | unittest 7개(shape, 확률, 범위 검증, 결정론 등) | `tests/test_pipeline.py` |
 | 패키징·CI | Docker 이미지 + GitHub Actions | `Dockerfile`, `.github/workflows/ci.yml` |
-| 보고서 | 7쪽 PDF, 모든 루브릭 항목 포함 | `report.pdf` |
+| 보고서 | 8쪽 PDF(표지 포함), 모든 루브릭 항목 포함 | `report.pdf` |
 
 ---
 
