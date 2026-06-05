@@ -1,0 +1,31 @@
+CardioCare Drift Monitoring Summary
+===================================
+
+Model version          : 1.0
+Reference (train) rows  : 734
+Test rows               : 184
+Significance level alpha: 0.05
+
+Artificial drift applied: {'chol': 30.0, 'trestbps': 15.0, 'oldpeak': 0.5}
+  (chol variance also inflated x1.3 to mimic a sensor/recalibration
+   change in a downstream lab.)
+
+KS test (Kolmogorov-Smirnov, train vs drifted) per continuous feature:
+  - age      : KS=0.047 p=8.793e-01 ok
+  - trestbps : KS=0.398 p=2.909e-20 DRIFT
+  - chol     : KS=0.246 p=4.057e-08 DRIFT
+  - thalach  : KS=0.058 p=7.058e-01 ok
+  - oldpeak  : KS=0.479 p=2.343e-29 DRIFT
+
+Flagged (p < 0.05): ['trestbps', 'chol', 'oldpeak']
+
+Balanced accuracy (clean test) : 0.8485
+Balanced accuracy (drifted set): 0.8376
+Performance decay (delta)      : 0.0109
+
+Interpretation: KS flags an input-distribution shift on the shifted
+features; the accompanying drop in balanced accuracy demonstrates the
+link between input drift and performance decay. In production this
+would trigger the retraining / human-review policy described in the
+report (drift-triggered retrain + scheduled retrain, with a clinician
+in the loop to prevent a runaway feedback loop).

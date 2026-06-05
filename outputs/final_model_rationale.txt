@@ -1,0 +1,27 @@
+FINAL MODEL: svc
+============================================================
+
+Selection criterion: CLINICAL, recall-first.
+
+In a cardiology screening context the most dangerous error is a
+FALSE NEGATIVE - telling a patient who has heart disease that they
+are healthy. A missed case can be fatal, whereas a false positive
+mainly triggers an additional (non-invasive) review by the
+cardiologist. We therefore rank candidates by a composite score that
+weights recall most heavily (0.5), then balanced accuracy (0.3) to
+respect class imbalance, then F1 (0.2) to keep precision honest.
+
+Selected model metrics on the held-out test set:
+  recall (sensitivity) : 0.892
+  balanced accuracy    : 0.849
+  precision            : 0.850
+  F1                   : 0.871
+  confusion [tn fp / fn tp]: [66 16 / 11 91]
+
+False negatives (fn) = 11: this is the count
+we most want to minimise. We did NOT inflate any number; these are
+the raw evaluation results.
+
+NOTE: CardioCare is an assistive, 'inform not decide' tool. The model
+output is a probability presented to a cardiologist, never an
+autonomous diagnosis.

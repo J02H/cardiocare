@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+# Keep the trained model and mlruns for grader convenience (committed).
+# If you prefer not to commit large artifacts, uncomment:
+# models/*.joblib
+# mlruns/

@@ -1,0 +1,28 @@
+2026-06-04 13:25:35,786 | INFO | model_version=1.0 | input=sample_input.csv | input_shape=(8, 13)
+2026-06-04 13:25:35,848 | INFO | predictions: 8 rows | disease=4 | no_disease=4 | -> outputs/predictions.csv
+2026-06-04 13:25:35,848 | INFO | REMINDER: CardioCare informs, it does not decide. Outputs are decision-support for a clinician, not a diagnosis.
+2026-06-04 13:26:18,138 | INFO | MONITOR | ts=2026-06-04T13:26:18 | model_version=1.0 | tag=clean_test | input_shape=(184, 13) | n_pred_positive=100 | balanced_accuracy=0.7317
+2026-06-04 13:26:18,177 | INFO | MONITOR | ts=2026-06-04T13:26:18 | model_version=1.0 | tag=drifted_test | input_shape=(184, 13) | n_pred_positive=133 | balanced_accuracy=0.6797
+2026-06-04 13:26:18,186 | INFO | KS drift flagged features: ['trestbps', 'chol', 'oldpeak']
+2026-06-04 13:26:18,186 | INFO | balanced_accuracy clean=0.7317 drifted=0.6797 delta=0.0520
+2026-06-05 01:49:46,283 | INFO | MONITOR | ts=2026-06-05T01:49:46 | model_version=1.0 | tag=clean_test | input_shape=(184, 13) | n_pred_positive=107 | balanced_accuracy=0.8485
+2026-06-05 01:49:46,377 | INFO | MONITOR | ts=2026-06-05T01:49:46 | model_version=1.0 | tag=drifted_test | input_shape=(184, 13) | n_pred_positive=116 | balanced_accuracy=0.8376
+2026-06-05 01:49:46,388 | INFO | KS drift flagged features: ['trestbps', 'chol', 'oldpeak']
+2026-06-05 01:49:46,388 | INFO | balanced_accuracy clean=0.8485 drifted=0.8376 delta=0.0109
+2026-06-05 01:49:48,429 | INFO | model_version=1.0 | input=sample_input.csv | input_shape=(8, 13)
+2026-06-05 01:49:48,449 | INFO | predictions: 8 rows | disease=2 | no_disease=6 | -> outputs/predictions.csv
+2026-06-05 01:49:48,449 | INFO | REMINDER: CardioCare informs, it does not decide. Outputs are decision-support for a clinician, not a diagnosis.
+2026-06-05 01:54:02,405 | INFO | model_version=1.0 | input=sample_input.csv | input_shape=(8, 13)
+2026-06-05 01:54:02,426 | INFO | predictions: 8 rows | disease=3 | no_disease=5 | -> outputs/predictions.csv
+2026-06-05 01:54:02,426 | INFO | REMINDER: CardioCare informs, it does not decide. Outputs are decision-support for a clinician, not a diagnosis.
+2026-06-05 01:54:04,544 | INFO | MONITOR | ts=2026-06-05T01:54:04 | model_version=1.0 | tag=clean_test | input_shape=(184, 13) | n_pred_positive=107 | balanced_accuracy=0.8485
+2026-06-05 01:54:04,655 | INFO | MONITOR | ts=2026-06-05T01:54:04 | model_version=1.0 | tag=drifted_test | input_shape=(184, 13) | n_pred_positive=116 | balanced_accuracy=0.8376
+2026-06-05 01:54:04,665 | INFO | KS drift flagged features: ['trestbps', 'chol', 'oldpeak']
+2026-06-05 01:54:04,665 | INFO | balanced_accuracy clean=0.8485 drifted=0.8376 delta=0.0109
+2026-06-05 02:02:49,988 | INFO | model_version=1.0 | input=sample_input.csv | input_shape=(8, 13)
+2026-06-05 02:02:50,010 | INFO | predictions: 8 rows | disease=3 | no_disease=5 | -> outputs/predictions.csv
+2026-06-05 02:02:50,010 | INFO | REMINDER: CardioCare informs, it does not decide. Outputs are decision-support for a clinician, not a diagnosis.
+2026-06-05 02:02:52,260 | INFO | MONITOR | ts=2026-06-05T02:02:52 | model_version=1.0 | tag=clean_test | input_shape=(184, 13) | n_pred_positive=107 | balanced_accuracy=0.8485
+2026-06-05 02:02:52,367 | INFO | MONITOR | ts=2026-06-05T02:02:52 | model_version=1.0 | tag=drifted_test | input_shape=(184, 13) | n_pred_positive=116 | balanced_accuracy=0.8376
+2026-06-05 02:02:52,378 | INFO | KS drift flagged features: ['trestbps', 'chol', 'oldpeak']
+2026-06-05 02:02:52,378 | INFO | balanced_accuracy clean=0.8485 drifted=0.8376 delta=0.0109
