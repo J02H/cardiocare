@@ -21,7 +21,7 @@ UCI Heart Disease 데이터셋의 일상적 임상 측정값으로부터 심장�
 | 모니터링·드리프트 | KS 검정 드리프트 탐지, 정상 vs 드리프트 균형 정확도 비교, 시계열 그래프 | `src/monitor.py` |
 | 테스트 | unittest 7개(shape, 확률, 범위 검증, 결정론 등) | `tests/test_pipeline.py` |
 | 패키징·CI | Docker 이미지 + GitHub Actions | `Dockerfile`, `.github/workflows/ci.yml` |
-| 보고서 | 6쪽 PDF, 모든 루브릭 항목 포함 | `report.pdf` |
+| 보고서 | 7쪽 PDF, 모든 루브릭 항목 포함 | `report.pdf` |
 
 ---
 
@@ -60,7 +60,7 @@ UCI Heart Disease 데이터셋의 일상적 임상 측정값으로부터 심장�
 
 ## 3. 설치
 
-**Python 3.10 이상**이 필요합니다.
+**Python 3.12** 환경을 권장합니다(CI·Docker 모두 3.12 기준).
 
 ```bash
 python -m venv .venv
@@ -105,6 +105,8 @@ python data/convert_uci.py
 ## 5. 전체 재현 명령 (한 번에)
 
 ```bash
+git clone https://github.com/J02H/cardiocare.git
+cd cardiocare
 pip install -r requirements.txt
 python data/download_data.py                                   # 데이터 준비
 python src/train.py --data data/heart.csv                      # 학습 + MLflow + 선택
@@ -242,7 +244,7 @@ docker run --rm cardiocare:1.0
 ## 12. CI (GitHub Actions)
 
 `.github/workflows/ci.yml`은 모든 `push`와 `pull_request`에서 실행됩니다:
-Python 3.10 설정 → 의존성 설치 → 데이터 준비 → 학습 → `unittest` → 추론 →
+Python 3.12 설정 → 의존성 설치 → 데이터 준비 → 학습 → `unittest` → 추론 →
 드리프트 모니터링. **main 브랜치를 green으로 유지**하는 것이 채점 대상입니다.
 
 ---
@@ -261,10 +263,22 @@ Python 3.10 설정 → 의존성 설치 → 데이터 준비 → 학습 → `uni
 
 ## 14. AI 도구 사용 공개
 
-AI 보조 도구(ChatGPT / Copilot / Claude 등)는 **보일러플레이트 작성과 디버깅
-보조에만** 사용했습니다. 지표 선택, recall 우선 선택, 드리프트 방법론, 서빙 전략
-등 모든 설계 결정과 최종 코드는 본인이 검토·이해했으며, 제출 코드 전체에 대해
-본인이 책임집니다. 자세한 내용은 `report.pdf` 부록 A 참조.
+본 프로젝트에서는 **ChatGPT와 Claude** 두 가지 AI 보조 도구를 사용했으며,
+사용 범위는 다음 두 가지로 한정했습니다.
+
+- **코드 초안 및 디버깅:** `src/preprocessing.py`, `src/train.py`,
+  `tests/test_pipeline.py`의 반복적인 골격을 초안으로 잡고, CI·Docker 과정에서
+  발생한 오류(numpy–Python 버전 불일치, MLflow 추적 경로 문제 등)의 원인 파악과
+  수정 방향을 점검하는 데 활용했습니다. 제안받은 코드는 모두 직접 읽고 동작을
+  확인한 뒤 채택했으며, 의미를 이해하지 못한 코드는 포함하지 않았습니다.
+- **보고서 문장·구조 다듬기:** 보고서 초안을 작성한 뒤 문장을 명확히 다듬고
+  섹션 구성을 정리하는 데 보조적으로 사용했습니다. 보고서에 담긴 모든 수치는
+  실제 코드 실행 결과에서 직접 가져왔으며 임의로 생성·수정하지 않았습니다.
+
+지표 선택, recall(거짓 음성) 우선의 모델 선택 기준, KS 검정 기반 드리프트
+방법론, 재학습 트리거 정책, 서빙 방식(MaaS) 선택 등 핵심 설계 결정은 모두
+본인이 판단한 것이며, 제출한 모든 코드와 보고서 내용에 대해 본인이 책임지고
+구두로 설명할 수 있습니다. 자세한 내용은 `report.pdf` 부록 A를 참조하십시오.
 
 ---
 
